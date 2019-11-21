@@ -2,5 +2,8 @@
 
 ## useful libraries
 
-- scalatest
-- scalacheck
+https://www.geeksforgeeks.org/recursion-practice-problems-solutions/
+
+## misc
+
+tail recursion
