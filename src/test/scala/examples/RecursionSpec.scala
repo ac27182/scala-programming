@@ -11,6 +11,5 @@ class RecursionSpec extends FunSpec {
       assert(factorial(3) == 6)
       assert(factorial(10) == 3628800)
     }
-    // it("should handle negative numbers") {}
   }
 }
