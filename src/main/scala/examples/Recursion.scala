@@ -7,4 +7,5 @@ object Recursion {
     case 0 => 1
     case n => n * factorial(n - 1)
   }
+
 }
