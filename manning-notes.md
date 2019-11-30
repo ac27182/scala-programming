@@ -116,6 +116,10 @@ $ sbt runMain
 
 `convariant:` the property of a function retaining its form when the variables are linearly transformed
 
+`data sharing:`
+
+`tail call optimisation:` a tail call is a subroutine call performed as the final action of a procedure, if a tail call might lead to the same subroutine being called again later in the call chain, the subroutine is said to be tail recursive.
+
 <!-- `invariant:` the property of a a function  -->
 
 ### annecdotes
@@ -132,12 +136,23 @@ $ sbt runMain
 
 > "a pattern matches the target if there exists an assignment of variables in the pattern to subexpressions of the target that make it stucturally equivilent"
 
+> scala type inference
+
+> placing a function in its own argument gtoup, lets type inference determine the input types in a function
+
+> underscore notation
+
+> get into the habbit of looking for possible ways to generalize any explicit recursive functions if you write to process lsits
+
 ```scala
 // variadic function syntax
 def apply[A](arr: A*): List[A] = ???
 
 // convariance syntax
 sealed trait List[+A]
+
+// tailrecursion simple annotation
+@tailrec
 ```
 
 ### misc
