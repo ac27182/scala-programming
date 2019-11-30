@@ -175,7 +175,32 @@ foldRight
 
 ### definitions
 
+`consolodation:`
+
+`antipattern:` antipatterns are certain patterns in softaware development that are considered bad programming practices
+
+`partial function:`
+
+`sentinal value:` a sentinal value is a special value in the context of an algorithm, which uses its presence as a condition of termination
+
+`total function:` a function which is defined for all possible values of its input
+
 ### anecdotes
+
+> we can write higher orde functions that abstract out common patterns of error handline and recovers, a functional solution is safer and retains referential trasnparency.
+
+> referential transparency does not depend on context
+
+> exceptions break referential transparency and introduce context dependence
+
+> exceptions are not type safe
+
+```scala
+// don't evaluate unless needed
+// B muust be a supertype of A
+def getOrElse[B >: A](default: => B): B = ???
+
+```
 
 ## C_5: strictness and laziness
 
