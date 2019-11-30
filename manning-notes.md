@@ -104,11 +104,41 @@ $ sbt runMain
 
 `function data structure:`
 
+`companion object:`
+
+`interface:`
+
+`data constructors:`
+
+`trait:` a trait is an abstract interface that may optionally contain implementations of some methods.
+
+`companion object:` a module containing functions to operate on a trait
+
+`convariant:` the property of a function retaining its form when the variables are linearly transformed
+
+<!-- `invariant:` the property of a a function  -->
+
 ### annecdotes
 
---
+---
+
+> const => constructs
 
 > functional data stuctures are immutable
+
+> final cases enable exhastivity checking
+
+> bind a subexpression of the target
+
+> "a pattern matches the target if there exists an assignment of variables in the pattern to subexpressions of the target that make it stucturally equivilent"
+
+```scala
+// variadic function syntax
+def apply[A](arr: A*): List[A] = ???
+
+// convariance syntax
+sealed trait List[+A]
+```
 
 ### misc
 
