@@ -1,18 +1,14 @@
 package examples
 import scala.annotation.tailrec
+import cats.instances.`package`.boolean
 
 object Module_3 {
-  import List._
+  // import List._
+  import Tree._
   def main(args: Array[String]): Unit = {
-
-    // exercise 3.1
-    val l1 = List(1, 2, 3, 4, 5, 6)
-    val l2 = List("a", "a", "a", "a", "a")
-    val l3 = List()
-
+    val x = Branch(Leaf("allan"), Branch(Leaf("steve"), Leaf("alex")))
     println("")
-    println(init(l2))
-    println(filter(l1)(_ % 2 != 0))
+    println(size(x))
     println("")
 
   }
@@ -128,4 +124,45 @@ object List {
 
   def apply[A](arr: A*): List[A] =
     if (arr.isEmpty) Nil; else Cons(arr.head, apply(arr.tail: _*))
+}
+
+sealed trait Tree[+T]
+case class Leaf[T](value: T) extends Tree[T]
+case class Branch[T](left: Tree[T], right: Tree[T]) extends Tree[T]
+
+object Tree {
+
+  // exercise 3.25
+  def size[T](t: Tree[T]): Int = t match {
+    case Leaf(value)         => 1
+    case Branch(left, right) => size(left) + size(right)
+  }
+
+  // exercise 3.26
+  def maximum(t: Tree[Int]): Int = t match {
+    case Leaf(value)         => value
+    case Branch(left, right) => maximum(left) max maximum(right)
+  }
+
+  // exercise 3.27
+  def depth[T](t: Tree[T]): Int = t match {
+    case Leaf(value)         => 0
+    case Branch(left, right) => (1 + depth(t)).max(1 + depth(t))
+  }
+
+  // exercise 3.28
+  def treeMap[X, Y](t: Tree[X])(implicit f: X => Y): Tree[Y] = t match {
+    case Leaf(value)         => Leaf(f(value))
+    case Branch(left, right) => Branch(treeMap(left), treeMap(right))
+  }
+
+  // exercise 3.29
+  def treeFold[X, Y](
+      t: Tree[X]
+  )(f: X => Y)(g: (Y, Y) => Y): Y =
+    t match {
+      case Branch(left, right) =>
+        g(treeFold(left)(f)(g), treeFold(right)(f)(g))
+      case Leaf(value) => f(value)
+    }
 }

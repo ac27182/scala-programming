@@ -120,6 +120,8 @@ $ sbt runMain
 
 `tail call optimisation:` a tail call is a subroutine call performed as the final action of a procedure, if a tail call might lead to the same subroutine being called again later in the call chain, the subroutine is said to be tail recursive.
 
+`algebreic data type:` an data type defined by one or more data constructors, each of which may contain zero or more arguments. We say that the data type is either the sum or the union of its ddata constructors, and each data type is the product of its arguments, hence alegbreic
+
 <!-- `invariant:` the property of a a function  -->
 
 ### annecdotes
@@ -142,7 +144,11 @@ $ sbt runMain
 
 > underscore notation
 
-> get into the habbit of looking for possible ways to generalize any explicit recursive functions if you write to process lsits
+> get into the habbit of looking for possible ways to generalize any explicit recursive functions if you write to process lists
+
+> associates to the right
+
+> be wary of loss of efficiency when composing list functions
 
 ```scala
 // variadic function syntax
@@ -153,11 +159,23 @@ sealed trait List[+A]
 
 // tailrecursion simple annotation
 @tailrec
+
+// useful functions
+filter
+flatMap
+map
+foldLeft
+foldRight
+
 ```
 
 ### misc
 
 ## C_4: handling errors without exceptions
+
+### definitions
+
+### anecdotes
 
 ## C_5: strictness and laziness
 
