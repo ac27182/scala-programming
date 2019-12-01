@@ -197,6 +197,10 @@ foldRight
 
 > exceptions are not type safe
 
+> feel free to use for comprehensions in place of explicit calls to flatmap
+
+> map | lift | sequence | traverse
+
 ```scala
 // don't evaluate unless needed
 // B muust be a supertype of A
