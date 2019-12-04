@@ -201,6 +201,12 @@ foldRight
 
 > map | lift | sequence | traverse
 
+> we can represent failures and exceptions with ordinary values
+
+> we can think of Either as the union of two disjoint types
+
+>
+
 ```scala
 // don't evaluate unless needed
 // B muust be a supertype of A
