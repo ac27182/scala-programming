@@ -216,6 +216,18 @@ def getOrElse[B >: A](default: => B): B = ???
 
 ## C_5: strictness and laziness
 
+### definitions
+
+`non-strict:` choosing not to evaluate one or more of a functions arguments
+
+`thunk:` unevaluated form of an expression
+
+### annecdotes
+
+> we can accomplish loop fusion using laziness
+
+> separation of concerns
+
 ## C_6: pureley functional state
 
 # P_2: functional design and combinator libraries
