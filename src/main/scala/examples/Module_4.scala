@@ -1,5 +1,5 @@
 package examples
-import scala.{List => SList, Nil => SNil}
+import scala.collection.immutable.Nil
 
 object Module_4 {
   // custom option trait
@@ -47,49 +47,52 @@ object Module_4 {
     } yield f(aa, bb) //return
 
   // exercise 4.4
-  def sequence[A](a: SList[Option[A]]): Option[SList[A]] =
+  def sequence[A](a: List[Option[A]]): Option[List[A]] =
     a match {
       case h :: t => h flatMap (hh => sequence(t) map (hh :: _))
-      case SNil   => Some(SNil)
+      case Nil    => Some(Nil)
     }
 
-  // exercise 4.5
-  // def traverse[A, B](a: SList[A])(f: A => Option[A]): Option[SList[B]] =
-  //   a match {
-  //     case head :: tl => map2(f(head), traverse(tl)(f))(_ :: _)
-  //     case SNil       => Some(SNil)
-  //   }
-
-  def main(args: Array[String]): Unit = {
-    val x = Seq(1.0, 2.0, 3.0, 4.0)
-    val y = Seq()
-
-    println(variance(x))
-    println(variance(x))
-  }
+  def main(args: Array[String]): Unit = {}
 }
 
 sealed trait Either[+E, +A] {
+  // exercise 4.6
   def map[B](f: A => B): Either[E, B] =
     this match {
       case Left(value)  => Left(value)
       case Right(value) => Right(f(value))
     }
 
+  // exercise 4.6
   def flatMap[EE >: E, B](f: A => Either[EE, B]): Either[EE, B] =
     this match {
       case Left(value)  => Left(value)
       case Right(value) => f(value)
     }
 
+  // exercise 4.6
   def orElse[EE >: E, B >: A](b: => Either[EE, B]): Either[EE, B] =
     this match {
       case Left(_)      => b;
       case Right(value) => Right(value)
     }
 
+  // exercise 4.6
   def map2[EE >: E, B, C](b: Either[EE, B])(f: (A, B) => C): Either[EE, C] =
     for { a0 <- this; b0 <- b } yield f(a0, b0)
+
+  // exercise 4.7
+  def sequence[E, A](es: List[Either[E, A]]): Either[E, List[A]] =
+    traverse(es)(x => x)
+
+  // exercise 4.7
+  def traverse[E, A, B](as: List[A])(f: A => Either[E, B]): Either[E, List[B]] =
+    as match {
+      case head :: tail => (f(head) map2 traverse(tail)(f))(_ :: _)
+      case Nil          => Right(Nil)
+    }
+
 }
 case class Left[+E](value: E) extends Either[E, Nothing]
 case class Right[+A](value: A) extends Either[Nothing, A]
