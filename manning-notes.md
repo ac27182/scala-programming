@@ -187,6 +187,10 @@ foldRight
 
 `total function:` a function which is defined for all possible values of its input
 
+`first class loops:` people sometimes call streams first class loops
+
+`corecursion:` corecursive algorithms use the data that they themselves produce, bit by bit, as they become available, and needed, to produce further bits of data
+
 ### anecdotes
 
 > we can write higher orde functions that abstract out common patterns of error handline and recovers, a functional solution is safer and retains referential trasnparency.
@@ -205,7 +209,15 @@ foldRight
 
 > we can think of Either as the union of two disjoint types
 
->
+> tracing involcves watching the program as it interacts with the operating system
+
+> be careful not to write expressions that arent stack safe
+
+> recursive algorithms consume data, corecursive algorithms produce data
+
+> corecursion is sometimes called guarded recursion
+
+> productivity is sometimes called `codetermination`
 
 ```scala
 // don't evaluate unless needed

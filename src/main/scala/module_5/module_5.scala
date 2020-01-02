@@ -1,5 +1,6 @@
 package module_5
 import scala.collection.immutable.Nil
+import scala.annotation.tailrec
 
 object module_5 {
 
@@ -51,6 +52,31 @@ object module_5 {
 
     def empty[A]: Stream[A] = Empty
 
+    // exercise 5.8
+    def constant[A](a: A): Stream[A] = cons(a, constant(a))
+    def constant2[A](a: A): Stream[A] = unfold(a)(_ => Some((a, a)))
+
+    // exercise 5.9
+    def from(n: Int): Stream[Int] = cons(n, from(n + 1))
+
+    // def from2(n: Int)(f: Int => Int): Stream[Int]
+
+    def unfold[A, S](z: S)(f: S => Option[(A, S)]): Stream[A] = f(z) match {
+      case None         => empty
+      case Some((h, s)) => cons(h, unfold(s)(f))
+    }
+
+    // def zipAll[B](s2: Stream[B]): Stream[(Option[A], Option[B])] = unfold(s2)() z
+    // def zipWithAll[B, C](
+    //     s2: Stream[B]
+    // )(f: (Option[A], Option[B]) => C): Stream[C] =
+    //   unfold((this, s2)) {
+    //     case (Empty, Empty) =>
+    //     case (Empty, Cons(...)) =>
+    //     case (Const(...), Empty) =>
+    //     case (Cons(...), Cons(...)) =>
+    //   }
+
     def apply[A](as: A*): Stream[A] =
       if (as.isEmpty) empty
       else cons(as.head, apply(as.tail: _*))
@@ -63,8 +89,12 @@ object module_5 {
   // }
 
   def main(agrs: Array[String]): Unit = {
+    // import module_5.
     println("> module 5: strictness and lazyness")
     println(Stream(1, 2, 3, 4, 5, 6, 7) takeWhile (n => n != 5) toList)
+    // println(SS.constant(1).take(5).toList)
+    // module_5.Stream
+
   }
 
 }
