@@ -242,6 +242,12 @@ def getOrElse[B >: A](default: => B): B = ???
 
 ## C_6: pureley functional state
 
+## Definitions
+
+`linear congruential generator`: an algorithm that yields a sequence of pseudo-randomized numbers calculated with a discontinuous piecewise linear equation
+
+## Annecdotes
+
 # P_2: functional design and combinator libraries
 
 ## C_7: pureley functional parallelism
