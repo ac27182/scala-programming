@@ -248,7 +248,11 @@ def getOrElse[B >: A](default: => B): B = ???
 
 `state actions`
 
-`combinator`
+`combinatory logic:` a notition used to eliminate the need for quantified variables in mathematical logic
+
+`combinator:`a combinator is an expression with no free variable. such that it is either a constant or a lambda expression which only refers to its bound variables.
+
+`free variable:` a variable that is not bound to a storage location.
 
 `type alias`
 
@@ -257,6 +261,20 @@ def getOrElse[B >: A](default: => B): B = ???
 # P_2: functional design and combinator libraries
 
 ## C_7: pureley functional parallelism
+
+### definitions
+
+`race condition:` A race condition or race hazard is the condition of an electronics, software, or other system where the system's substantive behavior is dependent on the sequence or timing of other uncontrollable events
+
+`inexplicit:` not explicit
+
+`forking:` fork is an operation whereby a process creates a copy of itself
+
+### annecdotes
+
+> laws have consequences
+
+> read `theorems for free` by philip wadler
 
 ## C_8: property based testing
 
