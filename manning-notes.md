@@ -246,6 +246,12 @@ def getOrElse[B >: A](default: => B): B = ???
 
 `linear congruential generator`: an algorithm that yields a sequence of pseudo-randomized numbers calculated with a discontinuous piecewise linear equation
 
+`state actions`
+
+`combinator`
+
+`type alias`
+
 ## Annecdotes
 
 # P_2: functional design and combinator libraries
