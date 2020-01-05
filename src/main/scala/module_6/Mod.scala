@@ -166,19 +166,6 @@ object Mod {
 
   case class Machine(locked: Boolean, candies: Int, coins: Int)
 
-  object Candy {
-    def update =
-      (i: Input) =>
-        (s: Machine) =>
-          (i, s) match {
-            case (_, Machine(_, 0, _)) => s
-            case (Coin, Machine(true, candy, coins)) =>
-              Machine(false, candy, coins)
-          }
-
-    def simulateMachine(inputs: List[Input]): State[Machine, (Int, Int)] = ???
-  }
-
   def main(args: Array[String]): Unit = {
     val rng = Simple(100000).nextInt._2
     println(RNG.nonNegativeInt(rng))
