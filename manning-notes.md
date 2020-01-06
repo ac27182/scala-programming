@@ -276,7 +276,31 @@ def getOrElse[B >: A](default: => B): B = ???
 
 > read `theorems for free` by philip wadler
 
+> separation of concerns
+
 ## C_8: property based testing
+
+### definitions
+
+`test case minimization:` in the event of a failing test the framework tries smaller and smaller sizes until it finds the smallest test case that fails, which is more illuminating for debugging purposes.
+
+`exhaustive test case generation:` for a sufficiently small testing domain we may exhaustively test all of the values, rather than generate sample values. If the property holds for all values in the domain we have an actual proof, rather than just `the absence of evidence to the contrary`
+
+`type alias:` a name that refers to a previously defined type
+
+### annecdotes
+
+> falsified
+
+> generators
+
+> properties
+
+> when thinking about properties to test, think of identity, the existence of zero, commutativity
+
+> this section will be another messy and iterative process...
+
+> type alias
 
 ## C_9: parser conbinators
 
