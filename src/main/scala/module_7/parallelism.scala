@@ -83,7 +83,7 @@ object parallelism {
         ints.headOption getOrElse 0 // `headOption` is a method defined on all collections in Scala. We saw this function in chapter 3.
       else {
         val (l, r) = ints.splitAt(ints.length / 2) // Divide the sequence in half using the `splitAt` function.
-        sum(l) + sum(r) // Recursively sum both halves and add the results together.
+        sum(l) + sum(r) // Recursively sum bfoth halves and add the results together.
       }
 
   }
