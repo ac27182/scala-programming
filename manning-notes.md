@@ -302,17 +302,50 @@ def getOrElse[B >: A](default: => B): B = ???
 
 > type alias
 
-## C_9: parser conbinators
+## C_9: parser combinators
+
+`parser:` a parser is a specialised perogram that takes unstructured data (text, streams of symbols, numbers, tokens) as input and outputs a structured representation of the data
+
+`algebra:` we define an algebra to mean a collection of functions operating over some data types along witha set of laws specifying relationships between these functions
+
+`algebreic design:` = ???
+
+`endofunctor:` an endofunctor is a functor from one category back to the same category
 
 # P_3: common structures in functional design
+
+> conceptual integration
+> "x has a monoid"
+
+## C_9: Monoids
 
 # P_4: effects and I/O
 
 # misc
 
-- singly linked list
-- equational resoning
-- local reasoning
-- composable
 - nG : go to the nth page
 - https://github.com/fpinscala/fpinscala
+
+> https://alvinalexander.com/scala/fp-book/functional-programming-is-like-algebra
+
+> covariant, contravariant, bivariant, variant, invariant
+
+> fold, zip, map, foldMap
+
+> functional programming simplified - alvin alexander
+
+> the scala cookbook - alvin alexander
+
+> functional and reactive domain modelling
+
+> category theory for programmers - bartosz milowski
+
+> programming in scala - martin odersky
+
+> from mathematics to generic programming
+
+> becomming functional
+
+> real world haskell
+
+> learn you a haskell for great good
